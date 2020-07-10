@@ -11,7 +11,7 @@ module.exports.createCards = (req, res) => {
   Card.create({ name, link, owner: req.user._id })
     .then((cards) => res.send({ data: cards }))
     .catch((err) => {
-      res.status(400).send({ message: 'Bad request' });
+      res.status(409).send({ message: err.message });
       console.error(err.stack);
     });
 };
