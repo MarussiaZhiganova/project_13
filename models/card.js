@@ -17,10 +17,10 @@ const cardSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     required: true,
   },
-  likes: [{
-    list: String,
-    liked: { type: mongoose.Schema.Types.ObjectId, default: 0 },
-  }],
+  likes: {
+    type: mongoose.Schema.Types.ObjectId,
+    default: [],
+  },
   createdAt: {
     type: Date,
     default: Date.now,
